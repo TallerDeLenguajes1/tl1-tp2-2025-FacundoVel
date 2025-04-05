@@ -1,0 +1,11 @@
+¿Puede ver el archivo tp2_1_2.c?
+
+    No, se ve el archivo tp2_1_2.c en la branch main, el archivo fue creado y commiteado en la branch Opcion_2. Esto se debe a que cada rama en Git tiene su propio historal de cambios.
+
+En VSCode vuelva al "Source Control" ¿Qué diferencias nota?
+
+    Se agrega un marcador de un color diferente diferenciandolo de la rama principal.
+
+ vuelva al “Source Control” vea los cambios, ¿Qué nota?
+
+    Despues de realizar el merge la branch Opcion 2 se desplaza hacia la derecha, se une en un nuevo punto como representando que los cambios se unen en la branch main.
