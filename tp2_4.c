@@ -14,6 +14,7 @@ typedef struct {
 char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
 void generacionDeDatos(compu pcs[], int cantidad);
+void listarPCs(compu pcs[], int cantidad);
 
 int main() {
 
@@ -30,5 +31,16 @@ void generacionDeDatos(compu pcs[], int cantidad){
         pcs[i].anio = 2015 + rand() % 10;
         pcs[i].cantidad_nucleos = 1 + rand() & 8;
         pcs[i].tipo_cpu = tipos[rand() % 6];
+    }
+}
+
+void listarPCs(compu pcs[], int cantidad){
+    printf("\nLista de PCs\n");
+    for(int i = 0; i < cantidad; i++){
+        printf("Pc -%d:\n", i+1);
+        printf("Velocidad: %d GHz\n", pcs[i].velocidad);
+        printf("Año: %d\n", pcs[i].anio);
+        printf("Nucleos: %d\n", pcs[i].cantidad_nucleos);
+        printf("Tipo de CPU: %s\n", pcs[i].tipo_cpu);
     }
 }
