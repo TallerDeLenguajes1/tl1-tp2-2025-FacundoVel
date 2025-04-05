@@ -15,12 +15,17 @@ char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
 void generacionDeDatos(compu pcs[], int cantidad);
 void listarPCs(compu pcs[], int cantidad);
+void mostrarMasVieja(compu pcs[], int cantidad);
+
 
 int main() {
 
     srand(time(NULL));
     compu pcs[CANTIDAD];
 
+    generacionDeDatos(pcs, CANTIDAD);
+    listarPCs(pcs, CANTIDAD);
+    mostrarMasVieja(pcs, CANTIDAD);
 
     return 0;
 }
@@ -43,4 +48,18 @@ void listarPCs(compu pcs[], int cantidad){
         printf("Nucleos: %d\n", pcs[i].cantidad_nucleos);
         printf("Tipo de CPU: %s\n", pcs[i].tipo_cpu);
     }
+}
+
+void mostrarMasVieja(compu pcs[], int cantidad){
+    int j = 0;
+    for(int i = 0; i < cantidad; i++){
+        if(pcs[i].anio < pcs[j].anio){
+            j = i;
+        }
+    }
+    printf("\nPC más vieja:\n");
+    printf("Velocidad: %d GHz\n", pcs[j].velocidad);
+    printf("Año: %d\n", pcs[j].anio);
+    printf("Nucleos: %d\n", pcs[j].cantidad_nucleos);
+    printf("Tipo de CPU: %s\n", pcs[j].tipo_cpu);
 }
