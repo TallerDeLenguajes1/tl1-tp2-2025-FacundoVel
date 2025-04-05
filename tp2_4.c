@@ -16,6 +16,7 @@ char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 void generacionDeDatos(compu pcs[], int cantidad);
 void listarPCs(compu pcs[], int cantidad);
 void mostrarMasVieja(compu pcs[], int cantidad);
+void mostrarMasVeloz(compu pcs[], int cantidad);
 
 
 int main() {
@@ -26,6 +27,7 @@ int main() {
     generacionDeDatos(pcs, CANTIDAD);
     listarPCs(pcs, CANTIDAD);
     mostrarMasVieja(pcs, CANTIDAD);
+    mostrarMasVeloz(pcs, CANTIDAD);
 
     return 0;
 }
@@ -42,7 +44,7 @@ void generacionDeDatos(compu pcs[], int cantidad){
 void listarPCs(compu pcs[], int cantidad){
     printf("\nLista de PCs\n");
     for(int i = 0; i < cantidad; i++){
-        printf("Pc -%d:\n", i+1);
+        printf("Pc - %d:\n", i+1);
         printf("Velocidad: %d GHz\n", pcs[i].velocidad);
         printf("Año: %d\n", pcs[i].anio);
         printf("Nucleos: %d\n", pcs[i].cantidad_nucleos);
@@ -57,7 +59,21 @@ void mostrarMasVieja(compu pcs[], int cantidad){
             j = i;
         }
     }
-    printf("\nPC más vieja:\n");
+    printf("\nPC mas vieja:\n");
+    printf("Velocidad: %d GHz\n", pcs[j].velocidad);
+    printf("Año: %d\n", pcs[j].anio);
+    printf("Nucleos: %d\n", pcs[j].cantidad_nucleos);
+    printf("Tipo de CPU: %s\n", pcs[j].tipo_cpu);
+}
+
+void mostrarMasVeloz(compu pcs[], int cantidad) {
+    int j = 0;
+    for(int i = 0; i < cantidad; i++) {
+        if(pcs[i].velocidad > pcs[j].velocidad) {
+            j = i;
+        }
+    }
+    printf("\nPC mas veloz:\n");
     printf("Velocidad: %d GHz\n", pcs[j].velocidad);
     printf("Año: %d\n", pcs[j].anio);
     printf("Nucleos: %d\n", pcs[j].cantidad_nucleos);
